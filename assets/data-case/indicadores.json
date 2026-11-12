@@ -1,0 +1,136 @@
+{
+  "pergunta": "Qual canal combina faturamento e margem bruta?",
+  "origem": "Dados sintéticos gerados pelo próprio pipeline; nenhum registro de empresa real.",
+  "qualidade": {
+    "extraidos": 182,
+    "validos": 180,
+    "duplicados_removidos": 1,
+    "invalidos_rejeitados": 1
+  },
+  "periodos": [
+    {
+      "periodo": "todos",
+      "receita_centavos": 5607000,
+      "lucro_bruto_centavos": 2286000,
+      "margem_pct": 40.77,
+      "pedidos": 162,
+      "canais": [
+        {
+          "canal": "Representante",
+          "pedidos": 54,
+          "receita_centavos": 2076000,
+          "lucro_bruto_centavos": 900000,
+          "margem_pct": 43.35
+        },
+        {
+          "canal": "Online",
+          "pedidos": 54,
+          "receita_centavos": 1869000,
+          "lucro_bruto_centavos": 762000,
+          "margem_pct": 40.77
+        },
+        {
+          "canal": "Loja",
+          "pedidos": 54,
+          "receita_centavos": 1662000,
+          "lucro_bruto_centavos": 624000,
+          "margem_pct": 37.55
+        }
+      ],
+      "conclusao": "Na amostra sintética deste período, Representante apresenta a maior margem bruta (43.35%). A conclusão descreve apenas este conjunto de demonstração."
+    },
+    {
+      "periodo": "2026-07",
+      "receita_centavos": 1869000,
+      "lucro_bruto_centavos": 762000,
+      "margem_pct": 40.77,
+      "pedidos": 54,
+      "canais": [
+        {
+          "canal": "Representante",
+          "pedidos": 18,
+          "receita_centavos": 692000,
+          "lucro_bruto_centavos": 300000,
+          "margem_pct": 43.35
+        },
+        {
+          "canal": "Online",
+          "pedidos": 18,
+          "receita_centavos": 623000,
+          "lucro_bruto_centavos": 254000,
+          "margem_pct": 40.77
+        },
+        {
+          "canal": "Loja",
+          "pedidos": 18,
+          "receita_centavos": 554000,
+          "lucro_bruto_centavos": 208000,
+          "margem_pct": 37.55
+        }
+      ],
+      "conclusao": "Na amostra sintética deste período, Representante apresenta a maior margem bruta (43.35%). A conclusão descreve apenas este conjunto de demonstração."
+    },
+    {
+      "periodo": "2026-08",
+      "receita_centavos": 1869000,
+      "lucro_bruto_centavos": 762000,
+      "margem_pct": 40.77,
+      "pedidos": 54,
+      "canais": [
+        {
+          "canal": "Representante",
+          "pedidos": 18,
+          "receita_centavos": 692000,
+          "lucro_bruto_centavos": 300000,
+          "margem_pct": 43.35
+        },
+        {
+          "canal": "Online",
+          "pedidos": 18,
+          "receita_centavos": 623000,
+          "lucro_bruto_centavos": 254000,
+          "margem_pct": 40.77
+        },
+        {
+          "canal": "Loja",
+          "pedidos": 18,
+          "receita_centavos": 554000,
+          "lucro_bruto_centavos": 208000,
+          "margem_pct": 37.55
+        }
+      ],
+      "conclusao": "Na amostra sintética deste período, Representante apresenta a maior margem bruta (43.35%). A conclusão descreve apenas este conjunto de demonstração."
+    },
+    {
+      "periodo": "2026-09",
+      "receita_centavos": 1869000,
+      "lucro_bruto_centavos": 762000,
+      "margem_pct": 40.77,
+      "pedidos": 54,
+      "canais": [
+        {
+          "canal": "Representante",
+          "pedidos": 18,
+          "receita_centavos": 692000,
+          "lucro_bruto_centavos": 300000,
+          "margem_pct": 43.35
+        },
+        {
+          "canal": "Online",
+          "pedidos": 18,
+          "receita_centavos": 623000,
+          "lucro_bruto_centavos": 254000,
+          "margem_pct": 40.77
+        },
+        {
+          "canal": "Loja",
+          "pedidos": 18,
+          "receita_centavos": 554000,
+          "lucro_bruto_centavos": 208000,
+          "margem_pct": 37.55
+        }
+      ],
+      "conclusao": "Na amostra sintética deste período, Representante apresenta a maior margem bruta (43.35%). A conclusão descreve apenas este conjunto de demonstração."
+    }
+  ]
+}
