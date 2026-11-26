@@ -120,9 +120,14 @@ navLinks.forEach(link => link.addEventListener('click', event => {
   target.focus({preventScroll: true});
 }));
 
-document.addEventListener('focusin', event => {
+function dismissMenuOutside(target) {
   if (menu.getAttribute('aria-expanded') === 'true' &&
-      event.target !== menu && !navigation.contains(event.target)) setMenuOpen(false);
+      !menu.contains(target) && !navigation.contains(target)) setMenuOpen(false);
+}
+
+document.addEventListener('focusin', event => dismissMenuOutside(event.target));
+document.addEventListener('click', event => {
+  if (event.detail > 0) dismissMenuOutside(event.target);
 });
 
 document.addEventListener('keydown', event => {

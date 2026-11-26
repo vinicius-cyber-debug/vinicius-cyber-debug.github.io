@@ -10,8 +10,8 @@
   <meta property="og:type" content="website">
   <title>Vinicius Maia | Backend e Full Stack</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261126-2">
+  <script src="app.js?v=20261126-2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -56,8 +56,25 @@
         <h2>Projetos</h2>
         <p>Veja as demonstrações, o código e as decisões técnicas por trás de cada projeto.</p>
       </div>
+      <nav class="project-shortcuts" aria-label="Atalhos dos projetos">
+        <ul>
+          <li><a href="#portaria-project-title">Next Portaria</a></li>
+          <li><a href="#erp-project-title">API ERP</a></li>
+          <li><a href="#data-project-title">SQL e ETL</a></li>
+        </ul>
+      </nav>
 
       <article class="featured-project" aria-labelledby="portaria-project-title">
+        <div class="project-overview">
+          <div class="project-meta"><span>Sistema full stack</span><span class="project-status"><i></i> Código público</span></div>
+          <h3 id="portaria-project-title" tabindex="-1">Next Portaria</h3>
+          <p class="project-description">Sistema de controle de acesso para autorizar visitantes, registrar entradas e saídas e acompanhar veículos e ocorrências.</p>
+          <div class="project-actions">
+            <a class="button button-primary" href="https://vinicius-cyber-debug.github.io/Next-Portaria/" target="_blank" rel="noopener noreferrer">Abrir demonstração <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="https://github.com/vinicius-cyber-debug/Next-Portaria" target="_blank" rel="noopener noreferrer">Ver código <span aria-hidden="true">↗</span></a>
+            <a class="project-github" href="https://github.com/vinicius-cyber-debug/Next-Portaria/blob/main/docs/ESTUDO-DE-CASO.md" target="_blank" rel="noopener noreferrer">Ler estudo de caso <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
         <figure class="project-preview">
           <div class="preview-browser" aria-hidden="true"><span><i></i><i></i><i></i></span><small>Next Portaria / Painel</small><b>↗</b></div>
           <a href="https://vinicius-cyber-debug.github.io/Next-Portaria/" target="_blank" rel="noopener noreferrer" aria-label="Abrir demonstração do Next Portaria">
@@ -66,9 +83,6 @@
           <figcaption>Captura do projeto <span>Dados de demonstração</span></figcaption>
         </figure>
         <div class="featured-project-content">
-          <div class="project-meta"><span>Sistema full stack</span><span class="project-status"><i></i> Código público</span></div>
-          <h3 id="portaria-project-title">Next Portaria</h3>
-          <p class="project-description">Sistema de controle de acesso para autorizar visitantes, registrar entradas e saídas e acompanhar veículos e ocorrências.</p>
           <div class="project-stack" aria-label="Tecnologias do Next Portaria"><span>React 19</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL 17</span><span>Tailwind CSS</span></div>
           <dl class="project-evidence">
             <dt>Minha participação</dt>
@@ -83,15 +97,18 @@
             <a href="https://github.com/vinicius-cyber-debug/Next-Portaria/blob/main/docs/ARQUITETURA.md" target="_blank" rel="noopener noreferrer">Arquitetura ↗</a>
             <a href="https://github.com/vinicius-cyber-debug/Next-Portaria/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">Política de segurança ↗</a>
           </div>
-          <div class="project-actions">
-            <a class="button button-primary" href="https://vinicius-cyber-debug.github.io/Next-Portaria/" target="_blank" rel="noopener noreferrer">Abrir demonstração <span aria-hidden="true">↗</span></a>
-            <a class="button button-outline" href="https://github.com/vinicius-cyber-debug/Next-Portaria" target="_blank" rel="noopener noreferrer">Ver código <span aria-hidden="true">↗</span></a>
-            <a class="project-github" href="https://github.com/vinicius-cyber-debug/Next-Portaria/blob/main/docs/ESTUDO-DE-CASO.md" target="_blank" rel="noopener noreferrer">Ler estudo de caso <span aria-hidden="true">↗</span></a>
-          </div>
         </div>
       </article>
 
       <article class="featured-project" aria-labelledby="erp-project-title">
+        <div class="project-overview">
+          <div class="project-meta"><span>Backend e dados</span><span class="project-status"><i></i> MVP demonstrativo</span></div>
+          <h3 id="erp-project-title" tabindex="-1">API ERP de consultas fiscais</h3>
+          <p class="project-description">API para filtrar notas fiscais por período, cliente e situação, consultar seus itens e navegar pelos catálogos de clientes e produtos.</p>
+          <div class="project-actions">
+            <a class="button button-outline" href="assets/projects/api-erp-codigo.zip" download="api-erp-vinicius-maia.zip">Baixar código (ZIP) <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
         <figure class="project-preview">
           <div class="preview-browser" aria-hidden="true"><span><i></i><i></i><i></i></span><small>API ERP / Swagger</small></div>
           <div>
@@ -100,9 +117,6 @@
           <figcaption>Captura da documentação <span>Swagger / OpenAPI</span></figcaption>
         </figure>
         <div class="featured-project-content">
-          <div class="project-meta"><span>Backend e dados</span><span class="project-status"><i></i> MVP demonstrativo</span></div>
-          <h3 id="erp-project-title">API ERP de consultas fiscais</h3>
-          <p class="project-description">API para filtrar notas fiscais por período, cliente e situação, consultar seus itens e navegar pelos catálogos de clientes e produtos.</p>
           <div class="project-stack" aria-label="Tecnologias do projeto"><span>C#</span><span>.NET 10</span><span>Dapper</span><span>SQLite</span><span>Swagger</span></div>
           <dl class="project-evidence">
             <dt>Escopo</dt>
@@ -111,21 +125,24 @@
             <dd>O relatório no ZIP registra 80 testes aprovados com SQLite em 09/10/2026. O adaptador SQL Server ainda aguarda execução e validação.</dd>
           </dl>
           <p class="project-database-note">A demonstração online está indisponível. O ZIP traz o código e a base sintética para execução local.</p>
-          <div class="project-actions">
-            <a class="button button-outline" href="assets/projects/api-erp-codigo.zip" download="api-erp-vinicius-maia.zip">Baixar código (ZIP) <span aria-hidden="true">↓</span></a>
-          </div>
         </div>
       </article>
 
       <article class="featured-project" aria-labelledby="data-project-title">
+        <div class="project-overview">
+          <div class="project-meta"><span>Análise de dados</span><span class="project-status">Execução reproduzível</span></div>
+          <h3 id="data-project-title" tabindex="-1">Laboratório de SQL e ETL</h3>
+          <p class="project-description">Estudo de faturamento e margem bruta por canal, com tratamento em Python, consultas SQL e painel web com filtro de período.</p>
+          <div class="project-actions">
+            <a class="button button-primary" href="projetos/analise-dados.html">Explorar análise</a>
+            <a class="button button-outline" href="assets/projects/laboratorio-dados.zip" download>Baixar SQL, ETL e dados <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
         <figure class="project-preview">
           <img src="assets/projects/data-case.svg" alt="Gráfico calculado pelo pipeline de SQL e Python com receitas por canal em uma amostra sintética." loading="lazy">
           <figcaption>Indicadores calculados <span>Dados sintéticos</span></figcaption>
         </figure>
         <div class="featured-project-content">
-          <div class="project-meta"><span>Análise de dados</span><span class="project-status">Execução reproduzível</span></div>
-          <h3 id="data-project-title">Laboratório de SQL e ETL</h3>
-          <p class="project-description">Estudo de faturamento e margem bruta por canal, com tratamento em Python, consultas SQL e painel web com filtro de período.</p>
           <div class="project-stack" aria-label="Tecnologias do laboratório"><span>SQL</span><span>Python</span><span>SQLite</span><span>ETL</span></div>
           <dl class="project-evidence">
             <dt>Processo</dt>
@@ -134,10 +151,6 @@
             <dd>O canal Representante teve a maior margem bruta, de 43,35%, no conjunto sintético.</dd>
           </dl>
           <p class="project-database-note">Estudo criado com assistência de IA. O pacote inclui CSV tratado e propostas de medidas DAX. A construção e a validação do relatório Power BI estão pendentes.</p>
-          <div class="project-actions">
-            <a class="button button-primary" href="projetos/analise-dados.html">Explorar análise</a>
-            <a class="button button-outline" href="assets/projects/laboratorio-dados.zip" download>Baixar SQL, ETL e dados <span aria-hidden="true">↓</span></a>
-          </div>
         </div>
       </article>
     </section>
