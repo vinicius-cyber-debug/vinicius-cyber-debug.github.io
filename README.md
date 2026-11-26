@@ -6,7 +6,7 @@ Publicado em https://vinicius-cyber-debug.github.io/ pelo GitHub Pages, a partir
 
 Site responsivo em português com foco em desenvolvimento full stack, backend, dados e integração de sistemas.
 
-O visual principal usa fundo escuro com grade, destaques em azul e ciano e uma apresentação centralizada. Os links de contato levam ao GitHub, LinkedIn e WhatsApp de Vinicius.
+A abertura apresenta a atuação de Vinicius, o currículo e uma captura do Next Portaria. O site oferece temas claro e escuro. Os links de contato levam ao GitHub, LinkedIn e WhatsApp.
 
 ## Arquivos
 
@@ -24,7 +24,7 @@ Abra `index.html` em um navegador ou sirva a raiz do repositório com um servido
 
 Edite os textos e os links de GitHub, LinkedIn e WhatsApp em `index.html`. As tecnologias, descrições e conhecimentos de cada aba ficam no objeto `skills` em `app.js`.
 
-A seção `#projetos` apresenta Next Portaria, o MVP da API ERP e um laboratório demonstrativo SQL/Python. Novos projetos continuam como “em breve”. A API usa dados sintéticos e ERP simulado. SQL Server está preparado no código, mas não foi executado nem validado.
+A seção `#projetos` vem logo após a abertura e apresenta Next Portaria, o MVP da API ERP e um laboratório demonstrativo SQL/Python. A API usa dados sintéticos e ERP simulado. SQL Server está preparado no código, mas não foi executado nem validado.
 
 A API ERP mantém o download do ZIP de fontes fornecido. A antiga demonstração temporária está indisponível; seus links foram removidos. A captura histórica da documentação foi preservada.
 
@@ -32,7 +32,7 @@ O site não coleta dados, não envia formulários e não usa analytics. A prefer
 
 ## Animações
 
-Entradas ao rolar, transições nas abas e etapas, brilho ambiente leve e microinterações em cartões e botões estão em `styles.css` e nos auxiliares de movimento em `app.js`. Os efeitos respeitam a configuração `prefers-reduced-motion` do dispositivo; o conteúdo também permanece acessível sem JavaScript. As fontes continuam hospedadas localmente.
+As transições das abas, das etapas e das seções estão em `styles.css` e `app.js` e respeitam a configuração `prefers-reduced-motion`. Os links de navegação permanecem visíveis no celular quando o JavaScript está desativado. As fontes são hospedadas localmente.
 
 ## Publicar em outro serviço
 

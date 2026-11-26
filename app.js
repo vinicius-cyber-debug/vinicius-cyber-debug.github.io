@@ -29,14 +29,13 @@ function revealImmediately(element) {
 function initializeMotion() {
   if (motionPreference.matches) return;
   document.body.classList.add('motion-ready');
-  animateElements(document.querySelector('.hero-copy').children, {distance: 16, duration: 650, stagger: 55});
   if (!('IntersectionObserver' in window)) return;
   revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) revealImmediately(entry.target);
     });
   }, {threshold: 0, rootMargin: '0px 0px -30px 0px'});
-  document.querySelectorAll('.section-heading, .career-card, .focus-card, .skills-tabs, .skill-panel, .languages, .approach-layout, .featured-project, .projects-empty, .contact-section').forEach(element => {
+  document.querySelectorAll('.section-heading, .career-card, .focus-card, .skills-tabs, .skill-panel, .languages, .approach-layout, .featured-project, .contact-section').forEach(element => {
     revealObserver.observe(element);
     // Never conceal content already on screen, including restored scroll positions.
     const bounds = element.getBoundingClientRect();
@@ -95,18 +94,83 @@ const steps=[
   {label:'03 / ENTENDER',title:'Informação útil\npara olhar além.',description:'Consultas SQL, ETL e automação com Python para preparar os dados. Relatórios em Power BI para explorar e comunicar as informações.',tags:['SQL & Python','ETL & automação','Power BI'],highlight:2}
 ];
 document.querySelectorAll('.flow-step').forEach(button=>button.addEventListener('click',()=>{if(button.getAttribute('aria-pressed')==='true')return;const data=steps[Number(button.dataset.step)];document.querySelectorAll('.flow-step').forEach(item=>{const active=item===button;item.classList.toggle('active',active);item.setAttribute('aria-pressed',String(active));});document.getElementById('flow-label').textContent=data.label;document.getElementById('flow-title').replaceChildren(...titleLines(data.title));document.getElementById('flow-description').textContent=data.description;document.getElementById('flow-tags').replaceChildren(...data.tags.map(tag=>{const span=document.createElement('span');span.textContent=tag;return span;}));document.querySelectorAll('.flow-decoration span').forEach((span,index)=>span.classList.toggle('highlight',index===data.highlight));animateElements(document.querySelectorAll('#flow-label, #flow-title, #flow-description, #flow-tags'),{distance:8,duration:330,stagger:30,opacity:.25});}));
-const menu=document.getElementById('menu-toggle');const navigation=document.getElementById('navigation');
-function closeMenu(){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menu');navigation.classList.remove('open');}
-menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');navigation.classList.toggle('open',open);});
-navigation.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){closeMenu();menu.focus();}});
-window.addEventListener('resize',()=>{if(window.innerWidth>600)closeMenu();});
+const menu = document.getElementById('menu-toggle');
+const navigation = document.getElementById('navigation');
+const mobileNav = window.matchMedia('(max-width: 600px)');
+const navLinks = Array.from(navigation.querySelectorAll('a[href^="#"]'));
+
+function setMenuOpen(open) {
+  menu.setAttribute('aria-expanded', String(open));
+  menu.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  navigation.classList.toggle('open', open);
+}
+
+menu.addEventListener('click', () => {
+  setMenuOpen(menu.getAttribute('aria-expanded') === 'false');
+});
+
+navLinks.forEach(link => link.addEventListener('click', event => {
+  if (menu.getAttribute('aria-expanded') !== 'true' || event.defaultPrevented ||
+      event.button !== 0 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+
+  const target = document.getElementById(link.hash.slice(1));
+  if (!target) return;
+  if (!target.hasAttribute('tabindex')) target.tabIndex = -1;
+  setMenuOpen(false);
+  target.focus({preventScroll: true});
+}));
+
+document.addEventListener('focusin', event => {
+  if (menu.getAttribute('aria-expanded') === 'true' &&
+      event.target !== menu && !navigation.contains(event.target)) setMenuOpen(false);
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || menu.getAttribute('aria-expanded') !== 'true') return;
+  setMenuOpen(false);
+  menu.focus();
+});
+
+mobileNav.addEventListener('change', event => {
+  if (event.matches && navigation.contains(document.activeElement)) menu.focus();
+  if (!event.matches && document.activeElement === menu) navLinks[0]?.focus();
+  setMenuOpen(false);
+});
+
+document.documentElement.classList.add('menu-ready');
 const themeButton=document.getElementById('theme-toggle');
 function setTheme(theme){document.documentElement.dataset.theme=theme;themeButton.setAttribute('aria-label',theme==='dark'?'Ativar tema claro':'Ativar tema escuro');document.querySelector('meta[name="theme-color"]').content=theme==='dark'?'#080b10':'#f4f7fb';}
 try{const theme=localStorage.getItem('vinicius-portfolio-theme');if(theme==='light'||theme==='dark')setTheme(theme);}catch{}
 themeButton.addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';setTheme(theme);try{localStorage.setItem('vinicius-portfolio-theme',theme);}catch{}});
 document.getElementById('year').textContent=new Date().getFullYear();
-const navLinks=Array.from(navigation.querySelectorAll('a'));
-const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')===`#${entry.target.id}`));}});},{rootMargin:'-15% 0px -60% 0px',threshold:0});
-['sobre','trajetoria','habilidades','projetos','abordagem','contato'].forEach(id=>observer.observe(document.getElementById(id)));
+const navSections = navLinks.flatMap(link => {
+  const section = document.getElementById(link.hash.slice(1));
+  return section ? [{link, section}] : [];
+});
+let activeNavLink;
+
+function updateActiveNavLink() {
+  const viewport = document.documentElement;
+  const anchorLine = (parseFloat(getComputedStyle(viewport).scrollPaddingTop) || 0) + 1;
+  const atPageEnd = window.scrollY > 0 && window.scrollY + window.innerHeight >= viewport.scrollHeight - 1;
+  const finalSection = navSections.at(-1);
+  // The final section may be too short to reach the anchor line.
+  const current = atPageEnd && finalSection?.section.getBoundingClientRect().top < window.innerHeight
+    ? finalSection
+    : navSections.find(({section}) => {
+      const bounds = section.getBoundingClientRect();
+      return bounds.top <= anchorLine && bounds.bottom > anchorLine;
+    });
+
+  if (activeNavLink === current?.link) return;
+  activeNavLink?.classList.remove('active');
+  activeNavLink?.removeAttribute('aria-current');
+  activeNavLink = current?.link;
+  activeNavLink?.classList.add('active');
+  activeNavLink?.setAttribute('aria-current', 'location');
+}
+
+window.addEventListener('scroll', updateActiveNavLink, {passive: true});
+window.addEventListener('resize', updateActiveNavLink);
+updateActiveNavLink();
 initializeMotion();
